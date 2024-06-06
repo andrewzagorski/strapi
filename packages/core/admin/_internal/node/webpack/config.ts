@@ -1,5 +1,5 @@
 import browserslistToEsbuild from 'browserslist-to-esbuild';
-import { ESBuildMinifyPlugin } from 'esbuild-loader';
+import { EsbuildPlugin } from 'esbuild-loader';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ForkTsCheckerPlugin from 'fork-ts-checker-webpack-plugin';
@@ -176,7 +176,7 @@ const resolveProductionConfig = async (ctx: BuildContext): Promise<Configuration
     optimization: {
       minimize: ctx.options.minify,
       minimizer: [
-        new ESBuildMinifyPlugin({
+        new EsbuildPlugin({
           target,
           css: true, // Apply minification to CSS assets
         }),
